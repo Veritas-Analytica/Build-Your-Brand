@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generating Character</title>
+    <style>
+        /* Reset and basic styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #007BFF;
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        #status p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #007BFF;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+
+            #status p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    <script>
+        async function generateCharacter() {
+            // Display loading animation and status
+            document.getElementById('status').innerHTML = `
+                <div class="loader"></div>
+                <p>Generating character, please wait...</p>
+            `;
+
+            try {
+                const response = await fetch('/generate-character-api', {
+                    method: 'POST'
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Redirect to the terminals route after successful generation
+                    window.location.href = '/terminals';
+                } else {
+                    document.getElementById('status').innerHTML = `<p>Error: ${result.error}</p>`;
+                }
+            } catch (error) {
+                document.getElementById('status').innerHTML = `<p>Error: ${error.message}</p>`;
+            }
+        }
+
+        // Call generateCharacter() when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCharacter();
+        });
+    </script>
+</head>
+<body>
+    <h1>Generating Your Character...</h1>
+    <div id="status">
+        <p>Loading...</p>
+    </div>
+</body>
+</html>

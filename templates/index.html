@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Brand Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .support-section {
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .support-section h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .wallet {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .wallet input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .wallet button {
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .wallet button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>.</h1>
+
+      <!-- Logo Section -->
+      <img src="https://veritasanalytica.ai/wp-content/uploads/2024/07/Veritas-Logo.svg" alt="Logo" class="logo">
+    <h1>Personal Brand Builder</h1>
+    <form method="POST">
+        <label for="character_name">Character Name:</label>
+        <input type="text" id="character_name" name="character_name" required>
+
+        <label for="twitter_username">Twitter Username:</label>
+        <input type="text" id="twitter_username" name="twitter_username" required>
+
+        <label for="twitter_password">Twitter Password:</label>
+        <input type="password" id="twitter_password" name="twitter_password" required>
+
+        <label for="twitter_email">Twitter Email:</label>
+        <input type="email" id="twitter_email" name="twitter_email" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="support-section">
+        <h2>Please Support Us on Mode</h2>
+        <p>Your support helps us to grow and continue improving this project.</p>
+        <div class="wallet">
+            <input type="text" id="wallet_id" value="0x6C11E61A2543C3B73b8B30ea0173328817602eDC" readonly>
+            <button onclick="copyWallet()">Copy Wallet Id</button>
+        </div>
+    </div>
+
+    <script>
+        function copyWallet() {
+            const walletField = document.getElementById('wallet_id');
+            walletField.select();
+            walletField.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(walletField.value);
+            alert("Wallet ID copied to clipboard!");
+        }
+    </script>
+</body>
+</html>
