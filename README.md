@@ -30,8 +30,11 @@ pip install openai
 pip install flask-socketio
 ```
 - Now, run **_app.py_**, and you will see the following screen. In the character section, please identify the character you want to build a brand for. Also, provide the Twitter credentials for the account you want to post on.
+
 ![Input](images/input.png "User Input")
 - Please click on "Submit," and it will begin generating your character file.
+
 ![Generating](images/generating.png "Generating Character")
 - Once your character has been generated, it will start posting, scheduling, and engaging on your behalf based on the data from your character file.
+
 ![Creating](images/creating.png "Response Creation")
