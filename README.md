@@ -22,6 +22,7 @@ pnpm install --no-frozen-lockfile
 pnpm build
 ```
 - In the **_.env_** file, add your OpenAI API key and Twitter credentials.
+- Also add the **_openai_api_key_** in **_config.yaml_**.
 - Install the following libraries:
 ```bash
 pip install flask
