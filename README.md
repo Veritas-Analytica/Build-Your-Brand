@@ -6,6 +6,7 @@ Idea is to have an AI agent to enhance a  personal brand by automating content r
 - **Content Generation:** Generates content tailored to your character and brand.
 - **Post Scheduling:** Schedules posts automatically for the best times to maximize engagement.
 - **Engagement:** Engages with others by liking, commenting, and interacting to keep you active and connected.
+- **Mode Integration:** The payment method here is integrated through Mode with MetaMask. The wallet id can be copied in order to send payments to support this project
 ## Instructions on how to test the agent:
 - Clone the repository.
 ```bash
